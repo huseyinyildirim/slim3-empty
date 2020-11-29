@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Venigu</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% include 'site/templates/partials/styles.twig' %}
+
+    <!-- Inline Styles -->
+    {% block inlineStyles %}
+    {% endblock %}
+    <!-- Inline Scripts -->
+
+    <!-- No JS Error -->
+    <script type="text/javascript">
+        <!--
+        //noinspection JSConstructorReturnsPrimitive
+        function NoError() {return !0}
+        window.onerror = NoError();
+        //-->
+    </script>
+    <!-- No JS Error -->
+</head>
+<body>
+
+{% include 'site/templates/partials/navigation.twig' %}
+
+{% include 'site/templates/partials/flash.twig' %}
+
+{% block content %}{% endblock %}
+
+{% include 'site/templates/partials/scripts.twig' %}
+
+{% if flash.getMessage('error') or flash.getMessage('info') or flash.getMessage('success') %}
+    <script type="text/javascript">
+        $('#flashModal').modal('show');
+    </script>
+{% endif %}
+
+<!-- Inline Scripts -->
+{% block inlineScripts %}
+{% endblock %}
+<!-- Inline Scripts -->
+
+</body>
+</html>

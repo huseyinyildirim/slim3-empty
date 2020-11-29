@@ -1,0 +1,38 @@
+{% if management.check %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ path_for('management') }}"><i class="fas fa-tachometer-alt"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <!--<li class="nav-item active">
+                <a class="nav-link" href="{{ path_for('management') }}">Ana Sayfa <span class="sr-only">(current)</span></a>
+            </li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path_for('management-member') }}"><i class="fas fa-users"></i> Üyeler <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cogs"></i> Ayarlar
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path_for('management-admin') }}"><i class="fas fa-user-secret"></i> Yöneticiler</a>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-user-circle"></i> {{ management.admin.name }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path_for('management-changepassword') }}"><i class="fas fa-key"></i> Şifre Değiştir</a>
+                    <a class="dropdown-item logout" href="{{ path_for('management-logout') }}"><i class="fas fa-sign-out-alt"></i> Çıkış</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endif %}
